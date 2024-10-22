@@ -1,7 +1,10 @@
 services:
   web:
-    image: php:8.3-apache
-    container_name: apache2-php
+    # image: php:8.3-apache
+    build: 
+      context: ./docker/build/apache2
+      dockerfile: Dockerfile
+    container_name: apache2-php-webserver
     ports:
       - "80:80"
     volumes:
@@ -15,7 +18,7 @@ services:
   
   mysql:
     image: mariadb:10.6-focal
-    container_name: mysql-container
+    container_name: apache2-php-mysql
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
       MYSQL_DATABASE: learnmvc
@@ -33,7 +36,7 @@ services:
   
   composer:
     image: composer:latest
-    container_name: composer
+    container_name: apache2-php-composer
     volumes:
       - ./phpcode:/app
     working_dir: /app
@@ -45,6 +48,7 @@ services:
     depends_on:
       - mysql
     image: phpmyadmin
+    container_name: apache2-php-phpymadmin
     restart: unless-stopped
     ports:
       - "8080:80"

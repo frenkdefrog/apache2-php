@@ -1,0 +1,11 @@
+{
+    "page": "almafa",
+    "database": {
+        "driver": "mysql",
+        "hostname": "mysql",
+        "dbname": "learnmvc",
+        "username": "user1",
+        "userpassword": "UKh3YhoupCxHoIuF9IzRDxtMmYrRbX",
+        "charset": "utf8mb4"
+    }
+}

@@ -1,0 +1,3 @@
+User-agent:
+Dissallow: /admin/
+Disallow: /ajax/
